@@ -2,11 +2,23 @@
 
 namespace App\Models;
 
+use DateTimeImmutable;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\File;
 
 class Post
 {
+
+    public function __construct
+    (
+        public string $title,
+        public string $excerpt,
+        public int $date,
+        public string $body,
+        public string $slug
+
+    ){}
+
     public static function all()
     {
         $files =  File::files(resource_path("posts/"));
