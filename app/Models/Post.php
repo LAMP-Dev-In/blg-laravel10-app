@@ -9,4 +9,17 @@ class Post extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $guarded = [];
+
+    public function category()
+    {
+        //hasOne, hasMany, belongdTo, belongsToMany
+        return $this->belongsTo(Category::class);
+    }
+
 }
