@@ -22,9 +22,9 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function author()
     {
-        return $this->BelongsTo(User::class);
+        return $this->BelongsTo(User::class, 'user_id');
     }
 
 }
