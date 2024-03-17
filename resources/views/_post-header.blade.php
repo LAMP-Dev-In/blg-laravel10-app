@@ -26,7 +26,7 @@
 
                         <!-- {{ isset($currentCategory) && $currentCategory->is($category) ? 'bg-blue-500 text-white' : '' }} -->
                         <x-dropdown-item 
-                            href="/categories/{{$category->slug}}"
+                            href="/?category={{$category->slug}}"
                             :active='request()->is("categories/{$category->slug}")'
                             >{{ ucwords($category->name) }}</x-dropdown-item>
 
