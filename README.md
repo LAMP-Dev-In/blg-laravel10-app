@@ -1,2 +1,2 @@
-# laravel9-app
-Laravel 9 app
+# blg-laravel10-app
+Blg Laravel 10 App
