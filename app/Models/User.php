@@ -44,8 +44,8 @@ class User extends Authenticatable
 
 
     /** 
-     * Accessor for password hassing in larave 10 
-    */
+     * Mutator for password hassing in larave 10 
+     */
     protected function password(): Attribute
     {
         return Attribute::make(
