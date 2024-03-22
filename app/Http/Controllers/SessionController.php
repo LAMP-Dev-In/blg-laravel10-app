@@ -7,14 +7,16 @@ use Illuminate\Validation\ValidationException;
 class SessionController extends Controller
 {
     /**
-     * login actions
+     * login page
      */
     public function create()
     {
         return view('session.create');
     }
 
-
+    /**
+     * login actions
+     */
     public function store()
     {
         $attributes =  request()->validate([
@@ -22,18 +24,19 @@ class SessionController extends Controller
             'password' => 'required'
         ]);
 
-        if(auth()->attempt($attributes)){
+         // auth failed.
+        if(!auth()->attempt($attributes)){
+           
+            throw ValidationException::withMessages([
+                'email' => 'Your credientials could not be varified.'
+            ]);
 
-            //avoid session fixation
-            session()->regenerate();
-
-            return redirect('/')->with('success', 'Welcome Back!');
         }
 
-        // auth failed.
-        throw ValidationException::withMessages([
-            'email' => 'Your credientials could not be varified.'
-        ]);
+        //avoid session fixation
+        session()->regenerate();
+
+        return redirect('/')->with('success', 'Welcome Back!');
 
     }
 
