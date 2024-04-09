@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\MailchimpNewsletter;
 use App\Services\Newsletter;
 use Illuminate\Support\ServiceProvider;
 use MailchimpMarketing\ApiClient;
@@ -22,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
                 'server' => config('services.mailchimp.server'),
             ]);
 
-            return new Newsletter($client);
+            return new MailchimpNewsletter($client);
         });
     }
 
