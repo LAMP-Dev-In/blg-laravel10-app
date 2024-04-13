@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Category;
 use Illuminate\View\View;
-use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends Controller
 {
-    public function index()
-    {
+    public function index(): View {
 
         return view('posts.index',[
             'posts' => Post::latest()->filter(
@@ -21,17 +17,10 @@ class PostController extends Controller
 
     }
 
-    public function show(Post $post)
-    {
+    public function show(Post $post) : View {
         return view('posts.show', [
             'post' => $post
         ]);   
-    }
-
-    public function create() : View {
-        
-        return view('posts.create');
-        
     }
 
 }
