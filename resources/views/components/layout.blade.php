@@ -29,6 +29,7 @@
                                 Welcome, {{ auth()->user()->name }}!
                             </button>
                         </x-slot>
+                    @can('admin')
                         <x-dropdown-item
                                 href="/admin/posts"
                                 :active="request()->is('admin/posts')"
@@ -42,6 +43,7 @@
                             >
                                 New Post
                         </x-dropdown-item>
+                    @endcan
                         <x-dropdown-item
                             href="#"
                             x-data="{}"
